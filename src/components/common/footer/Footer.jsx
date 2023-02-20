@@ -4,7 +4,11 @@ export const Footer = () => {
   return (
     <div className="container mx-auto px-4 flex justify-between">
       <div>
-        <h1>Game Shell</h1>
+        <h1>
+          <Link to="/" title="home">
+            Game Shell
+          </Link>
+        </h1>
         <p className="text-xs">Crafted by Pixellab</p>
       </div>
 
