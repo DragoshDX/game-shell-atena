@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseUrl = 'http://localhost:8080';
+const baseUrl = 'https://alive-east-airedale.glitch.me/';
 
 export const client = axios.create({
   baseURL: baseUrl,
