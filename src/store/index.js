@@ -1,9 +1,11 @@
-import { createStore } from 'redux';
+import { combineReducers, createStore } from 'redux';
+import { authReducer, counterReducer } from './reducers';
 
-const reducer = (state = 42, action) => {
-  return state;
-};
+const mainReducer = combineReducers({
+  counter: counterReducer,
+  auth: authReducer,
+});
 
-const store = createStore(reducer);
+const store = createStore(mainReducer);
 
 export default store;
