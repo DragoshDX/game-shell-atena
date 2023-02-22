@@ -15,7 +15,9 @@ export const Home = () => {
 
   return (
     <Layout>
-      <div class="mx-auto px-4 container">Home: {JSON.stringify(users)}</div>
+      <div className="mx-auto px-4 container">
+        Home: {JSON.stringify(users)}
+      </div>
     </Layout>
   );
 };
