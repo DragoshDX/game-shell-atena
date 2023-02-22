@@ -1,4 +1,4 @@
-const { createStore } = require('redux');
+import { createStore } from 'redux';
 
 const reducer = (state = 42, action) => {
   return state;
