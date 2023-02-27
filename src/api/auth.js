@@ -19,9 +19,9 @@ export const initializeGoogleAuth = async () => {
         },
         scope: 'email profile',
       });
-    });
 
-    resolve();
-    initialized = true;
+      resolve();
+      initialized = true;
+    });
   });
 };
