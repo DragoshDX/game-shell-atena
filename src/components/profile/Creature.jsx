@@ -10,7 +10,7 @@ export const Creature = () => {
     border: 1px solid red;
 
     div {
-      padding: 8px;
+      padding: 6px;
     }
 
     & :first-child {
