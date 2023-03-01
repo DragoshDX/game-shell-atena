@@ -10,6 +10,13 @@ export const setUser = (user) => {
   };
 };
 
+export const setUserStats = (stats) => {
+  return {
+    type: 'auth/setUserStats',
+    payload: stats,
+  };
+};
+
 // GET -> /users/12312312421342131
 export const readUser = (userId) => {
   return async () => {
@@ -21,14 +28,12 @@ export const readUser = (userId) => {
 
 // POST -> /users
 export const createUser = (userId) => {
-  return async () => {
+  return async (_, getState) => {
+    const { stats } = getState();
+
     const { data } = await client.post('/users', {
       id: userId,
-      stats: {
-        gamesWon: 0,
-        gamesLost: 0,
-        gamesPlayed: 0,
-      },
+      stats,
     });
 
     return data;

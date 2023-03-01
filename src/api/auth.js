@@ -1,5 +1,10 @@
 import jwtDecode from 'jwt-decode';
-import { createUser, readUser, setUser } from '../store/actions/auth';
+import {
+  createUser,
+  readUser,
+  setUser,
+  setUserStats,
+} from '../store/actions/auth';
 import store from './../store';
 let initialized = false;
 const clientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
@@ -37,9 +42,9 @@ export const initializeGoogleAuth = async () => {
 
           store
             .dispatch(readUser(id))
-            .then((x) => {
+            .then(({ stats }) => {
               // daca user exista - incarcam informatia in stare
-              console.log(x);
+              store.dispatch(setUserStats(stats));
             })
             .catch(() => {
               // daca user nu exista - creeam
