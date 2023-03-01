@@ -1,8 +1,6 @@
-// 395620629767-4vj45rtns9vm7jap1pmdkiokqdas4jlr.apps.googleusercontent.com
-
+import jwtDecode from 'jwt-decode';
 let initialized = false;
-const clientId =
-  '395620629767-4vj45rtns9vm7jap1pmdkiokqdas4jlr.apps.googleusercontent.com';
+const clientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
 
 export const initializeGoogleAuth = async () => {
   return new Promise((resolve) => {
@@ -15,7 +13,7 @@ export const initializeGoogleAuth = async () => {
       google.accounts.id.initialize({
         client_id: clientId,
         callback: (response) => {
-          console.log(response);
+          console.log(jwtDecode(response.credential));
         },
         scope: 'email profile',
       });
