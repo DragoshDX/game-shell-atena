@@ -1,4 +1,5 @@
 import jwtDecode from 'jwt-decode';
+import { setUser } from '../store/actions/auth';
 import store from './../store';
 let initialized = false;
 const clientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
@@ -23,17 +24,16 @@ export const initializeGoogleAuth = async () => {
             name,
           } = jwtDecode(response.credential);
 
-          store.dispatch({
-            type: 'auth/setUser',
-            payload: {
+          store.dispatch(
+            setUser({
               firstName,
               lastName,
               email,
               avatar,
               id,
               name,
-            },
-          });
+            }),
+          );
         },
         scope: 'email profile',
       });
