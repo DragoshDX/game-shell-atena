@@ -9,13 +9,14 @@ export const Button = ({
   element = 'button',
   children,
   skin = 'primary',
+  className = '',
   ...props
 }) => {
   const skinClasses = skins[skin];
   const Element = element;
 
   return (
-    <Element {...props} className={skinClasses}>
+    <Element {...props} className={`${skinClasses} ${className}`}>
       {children}
     </Element>
   );

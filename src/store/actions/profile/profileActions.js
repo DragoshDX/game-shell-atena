@@ -37,3 +37,17 @@ export const readProfile = (userId) => {
     return data;
   };
 };
+
+// async thunk
+export const updateProfile = (userId, newProfile) => {
+  return async (dispatch, getState) => {
+    const { profile } = getState();
+
+    const { data } = await client.patch(`/profiles/${userId}`, {
+      ...profile,
+      colors: newProfile.colors,
+    });
+
+    dispatch(setUserProfile(data));
+  };
+};
