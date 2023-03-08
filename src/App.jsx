@@ -18,10 +18,12 @@ const router = createBrowserRouter([
   {
     path: '/ranks',
     element: <Ranks></Ranks>,
-  },
-  {
-    path: '/rank',
-    element: <Rank></Rank>,
+    children: [
+      {
+        path: '/ranks/:userId',
+        element: <Rank></Rank>,
+      },
+    ],
   },
 ]);
 

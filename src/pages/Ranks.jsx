@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { Layout } from '../layouts';
 import { readUsers } from '../store/actions/users/usersActions';
 
@@ -27,10 +28,12 @@ export const Ranks = () => {
             <ul>
               {users.map(({ id, stats }) => {
                 return (
-                  <li className="flex justify-between">
-                    {id}
+                  <li>
+                    <Link className="flex justify-between" to={`/ranks/${id}`}>
+                      {id}
 
-                    <span>Games played: {stats.gamesPlayed}</span>
+                      <span>Games played: {stats.gamesPlayed}</span>
+                    </Link>
                   </li>
                 );
               })}
