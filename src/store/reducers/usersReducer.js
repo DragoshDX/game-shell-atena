@@ -8,6 +8,7 @@ export const usersReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case 'users/setAll':
       return {
+        ...state,
         users: payload || [],
       };
     case 'users/setUser':
