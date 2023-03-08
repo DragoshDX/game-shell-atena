@@ -1,4 +1,5 @@
 import { useParams } from 'react-router-dom';
+import { RankDashboard } from '../components/ranks';
 import { Layout } from '../layouts';
 
 export const Rank = () => {
@@ -10,6 +11,10 @@ export const Rank = () => {
         <header>
           <h1 className="text-3xl font-bold">User: {userId}</h1>
         </header>
+
+        <section className="mt-8">
+          <RankDashboard userId={userId}></RankDashboard>
+        </section>
       </div>
     </Layout>
   );

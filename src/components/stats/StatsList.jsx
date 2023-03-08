@@ -1,16 +1,9 @@
-import { useSelector } from 'react-redux';
-
-export const StatsList = () => {
-  const stats = useSelector(({ auth }) => {
-    return auth.stats;
-  });
-  const { gamesPlayed, gamesWon, gamesLost } = stats;
-
+export const StatsList = ({ played = 0, won = 0, lost = 0 }) => {
   return (
     <ul className="border rounded-md shadow">
-      <li>{gamesPlayed}</li>
-      <li>{gamesWon}</li>
-      <li>{gamesLost}</li>
+      <li>{played}</li>
+      <li>{won}</li>
+      <li>{lost}</li>
     </ul>
   );
 };
